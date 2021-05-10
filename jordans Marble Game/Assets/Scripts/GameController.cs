@@ -47,10 +47,9 @@ public class GameController : MonoBehaviour {
 		Debug.Log (SceneManager.sceneCountInBuildSettings);
 		Debug.Log (SceneManager.GetActiveScene ().buildIndex);
 
-		if (SceneManager.GetActiveScene().buildIndex-1 == SceneManager.sceneCountInBuildSettings)
-			SceneManager.LoadScene (0);
-		else
-			SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex+1);
+
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
 	}
 
 	private void UpdateUI()
