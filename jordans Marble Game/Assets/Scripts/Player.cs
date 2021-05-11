@@ -85,9 +85,12 @@ public class Player : MonoBehaviour {
 		rb.AddForce (MovementVector*TweakValue, ForceMode.VelocityChange);
 
 		OrbitAngle += (Input.GetAxis("Mouse X")*MouseSensitivity);
+		//OrbitAngle += (Input.GetAxis("Mouse Y")*MouseSensitivity);
 
 		if (Mathf.Abs (Input.GetAxis ("Mouse X")) > 0)
 			CameraCollision = false;
+		//if (Mathf.Abs(Input.GetAxis("Mouse Y")) > 0)
+		//	CameraCollision = false;
 	}
 
 	private void UpdateCamera ()
@@ -99,6 +102,9 @@ public class Player : MonoBehaviour {
 			MainCam.transform.position = transform.position + CamOffset;
 			MainCam.transform.eulerAngles = new Vector3 (CamAngle, 0, 0);
 			CamOrbit.transform.Rotate (0, OrbitAngle, 0);
+
+			//MainCam.transform.eulerAngles = new Vector3(0, CamAngle, 0);
+			//CamOrbit.transform.Rotate(OrbitAngle, 0, 0);
 		}
 
 		CheckCamCollision ();
